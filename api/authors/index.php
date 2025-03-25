@@ -2,15 +2,8 @@
 
     require_once '../../config/Database.php';
     require_once '../../models/Author.php';
-    include_once '../../config/Database.php';  // Maybe
-    include_once '../../models/Author.php';   //Maybe
-
-    
-    /*require '../../API/authors/read_single.php';
-    
-    require '../../API/authors/update.php';
-    require '../../API/authors/delete.php';*/
-   
+    include_once '../../config/Database.php';  
+    include_once '../../models/Author.php';  
 
 
     $method = $_SERVER['REQUEST_METHOD'];

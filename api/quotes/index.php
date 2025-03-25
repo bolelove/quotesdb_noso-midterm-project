@@ -2,8 +2,8 @@
 
     require_once '../../config/Database.php';
     require_once '../../models/Quote.php';
-    include_once '../../config/Database.php';  // Maybe
-    include_once '../../models/Quote.php';   //Maybe
+    include_once '../../config/Database.php'; 
+    include_once '../../models/Quote.php';   
 
     $method = $_SERVER['REQUEST_METHOD'];
     $endpoint = $_SERVER['REQUEST_URI'];
