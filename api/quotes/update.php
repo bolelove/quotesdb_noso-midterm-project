@@ -1,10 +1,10 @@
-<?php 
+<?php
   // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
   header('Access-Control-Allow-Methods: PUT');
-  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
-
+  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-With');
+  
   include_once '../../config/Database.php';
   include_once '../../models/Quote.php';
 
@@ -12,26 +12,38 @@
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate quote object
+  // Instantiate quote object 
   $quote = new Quote($db);
 
   // Get raw data
   $data = json_decode(file_get_contents("php://input"));
 
-  // Set ID to update
-  $quote->id = $data->id;
+  // If paramters are missing in the body...
+  if (!isset($data->id) || (!isset($data->quote))) {
+    echo json_encode(['message' => 'Missing Required Parameters']);
+    exit;
+  }
 
+  // Set ID to UPDATE
+  $quote->id = $data->id;
   $quote->quote = $data->quote;
   $quote->author_id = $data->author_id;
   $quote->category_id = $data->category_id;
 
-  // Update quote
+  $data = json_decode(file_get_contents("php://input"), true);
+
+  // Update post if...
   if($quote->update()) {
     echo json_encode(
-      array('message' => 'Quote Updated')
+      array('id' => $data['id'],
+      'quote' => $data['quote'],
+      'author_id' => $data['author_id'],
+      'category_id' => $data['category_id'])
     );
+//else...
   } else {
     echo json_encode(
-      array('message' => 'Quote Not Updated')
+      array('message' => 'Quote not updated')
     );
   }
+?>

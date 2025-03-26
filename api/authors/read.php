@@ -1,7 +1,4 @@
 <?php 
-  // Headers
-  header('Access-Control-Allow-Origin: *');
-  header('Content-Type: application/json');
 
   include_once '../../config/Database.php';
   include_once '../../models/Author.php';
@@ -19,7 +16,7 @@
   // Get row count
   $num = $result->rowCount();
 
-  // Check if any authors
+  // check authors if....
   if($num > 0) {
         // author array
         $author_arr = array();
@@ -39,7 +36,7 @@
 
         // Turn to JSON & output
         echo json_encode($author_arr);
-
+        //else...
   } else {
         // No authors
         echo json_encode(

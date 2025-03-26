@@ -1,4 +1,3 @@
-
 <?php
 
   // Headers
@@ -6,12 +5,12 @@
   header('Content-Type: application/json');
 
   include_once '../../config/Database.php';
-  include_once '../../models/Category.php';
+  include_once '../../models/category.php';
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
-  // Instantiate category object
-  $category = new Category($db);
+  // Instantiate Category object
+  $category = new Category($db); 
 
   // Get ID
   $category->id = isset($_GET['id']) ? $_GET['id'] : die();
@@ -20,10 +19,11 @@
   $category->read_single();
 
   // Create array
-  $category_arr = array(
+  $category = array(
     'id' => $category->id,
     'category' => $category->category
   );
 
   // Make JSON
   print_r(json_encode($category_arr));
+  ?>

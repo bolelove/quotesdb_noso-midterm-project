@@ -1,43 +1,32 @@
-# Deploy with Docker
-## A Step-by-Step Guide
----
+# Noah Solomon
+# Mid-Term Project INF 653
+# Project Name: https://quotesdb-noso-midterm-project.onrender.com/
+# Dave Gray 
 
-### Author Links
+ > Build a PHP OOP REST API for quotations- both famous quotes and user submissions
+ > ALL quotes have ALL 3 of the following:
+   > Quote (the quotation itself)
+   > Author
+   > Category
+ > Created a database named “quotesdb” with 3 tables and these specific column names:
+  > quotes (id, quote, author_id, category_id)- the last two are foreign keys
+  > authors (id, author)
+  > categories (id, category)
+  > id is the primary key in each table
+  > The id column should also auto-increment
+  > All columns should be non-null
+  > Support for this creation process will be documented in Blackboard
+> Response requirements:
+  > All requests should provide a JSON data response.
+  > All requests for quotes should return the id, quote, author (name), and category (name)
+  > All requests for authors should return the id and author fields.
+  > All requests for categories should return the id and category fields.
+  > Appropriate not found and missing parameter messages as indicated.
 
-👋 Hello, I'm Dave Gray.
+> Create Database utilizing Postgres with...
+ > Minimum 5 categories
+ > Minimum 5 authors
+ > Minimum 25 quotes total for initial data
 
-📚 [My Courses](https://courses.davegray.codes/)
+> Built Docker container to deploy PHP with Apache on Render.com
 
-✅ [Check out my YouTube Channel with hundreds of tutorials](https://www.youtube.com/DaveGrayTeachesCode).
-
-🚩 [Subscribe to my channel](https://bit.ly/3nGHmNn)
-
-💖 [Support My Content](https://patreon.com/davegray)
-
-🚀 Follow Me:
-
-- [Twitter](https://twitter.com/yesdavidgray)
-- [LinkedIn](https://www.linkedin.com/in/davidagray/)
-- [Blog](https://davegray.codes)
-
----
-
-### Description
-
-📺 [YouTube Video](https://youtu.be/NL23_cVq6XI) for this repository.
-
----
-
-### 🎓 Academic Honesty
-
-**DO NOT COPY FOR AN ASSIGNMENT** - Avoid plagiarism and adhere to the spirit of this [Academic Honesty Policy](https://www.freecodecamp.org/news/academic-honesty-policy/).
-
----
-
-### 📚 Tutorial References
-
-- 🔗 [Docker Hub PHP](https://hub.docker.com/_/php)
-- 🔗 [Render.com](https://render.com/)
-
-
-# php-apache-docker

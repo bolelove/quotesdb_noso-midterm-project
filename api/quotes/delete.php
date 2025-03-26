@@ -13,21 +13,23 @@
   $db = $database->connect();
 
   // Instantiate quote object
-  $quote = new Quote($db);
+  $quote  = new Quote($db);
 
   // Get raw data
   $data = json_decode(file_get_contents("php://input"));
 
+  
   // Set ID to update
   $quote->id = $data->id;
 
-  // Delete quote
+  $data = json_decode(file_get_contents("php://input"), true);
+
+  // if delete quote ...
   if($quote->delete()) {
-    echo json_encode(
-      array('message' => 'Quote Deleted')
-    );
+    // else...
   } else {
     echo json_encode(
-      array('message' => 'Quote Not Deleted')
+      array('message' => 'Category not deleted')
     );
   }
+?>

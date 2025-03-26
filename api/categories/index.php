@@ -1,38 +1,32 @@
 <?php
-
-    require_once '../../config/Database.php';
-    require_once '../../models/Category.php';
-    include_once '../../config/Database.php';  
-    include_once '../../models/Category.php';  
-
-    $method = $_SERVER['REQUEST_METHOD'];
-    $endpoint = $_SERVER['REQUEST_URI'];
-
+    // Header
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
-    
+    $method = $_SERVER['REQUEST_METHOD'];
 
     if ($method === 'OPTIONS') {
         header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
         header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
         exit();
     }
-   
 
-  
-
-
-    switch($method){
-        case 'GET':
-            require '../../API/categories/read.php';
-            break;
-        case 'POST':
-            require '../../API/categories/create.php';
-            break; 
-        case 'PUT':
-            require '../../API/categories/update.php';
-            break; 
-        case 'DELETE':
-            require '../../API/categories/delete.php';
-            break;  
+    if ($method === 'GET') {
+        if (isset($_GET["id"])) {
+            require_once 'read_single.php';
+        } else {
+            require_once 'read.php';
+        }
     }
+
+    if ($method === 'PUT') {
+        require_once 'update.php';
+    }
+
+    if ($method === 'POST') {
+        require_once 'create.php';
+    }
+
+    if ($method === 'DELETE') {
+        require_once 'delete.php';
+    }
+?>

@@ -8,6 +8,7 @@
 
   include_once '../../config/Database.php';
   include_once '../../models/Category.php';
+
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
@@ -18,16 +19,29 @@
   // Get raw data
   $data = json_decode(file_get_contents("php://input"));
 
+  // Create Category, if...
+  if (!isset($inputdata['category'])) {
+    echo json_encode(['message' => 'Missing Required Parameters']);
+    exit;
+  }
+
+  // Get raw data
+   $data = json_decode(file_get_contents("php://input"));
+
   // Set ID to UPDATE
   $category->id = $data->id;
 
-  // Delete category
+  $data = json_decode(file_get_contents("php://input"), true);
+
+  //  // if delete category ...
   if($category->delete()) {
     echo json_encode(
-      array('message' => 'Category deleted')
+      array('id' => $data['id'])
     );
+	//else...
   } else {
     echo json_encode(
       array('message' => 'Category not deleted')
     );
   }
+?>

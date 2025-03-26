@@ -1,41 +1,32 @@
-<?php   
-    //Headers
+<?php
 
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
+  // Headers
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
 
-    
-    include_once '../../config/Database.php';
-    include_once '../../models/Quote.php';
+  include_once '../../config/Database.php';
+  include_once '../../models/category.php';
 
+  // Instantiate DB & connect
+  $database = new Database();
+  $db = $database->connect();
 
-    // Instantiate DB & connect
+  // Instantiate Category object
+  $category = new Category($db); 
 
-    $database = new Database();
-    $db = $database->connect();
+  // Get ID
+  $category->id = isset($_GET['id']) ? $_GET['id'] : die();
 
-    
-    // Instantiate quote object
+  // Get category
+  $category->read_single();
 
-    $quote = new Quote($db);
-
-
-    // Get ID
-
-    $quote->id = isset($_GET['id']) ?  $_GET['id'] : die();
-
-    // Get quote
-    $quote->read_single();
-
-    // Crete array
-    $quote_arr = array(
-        'id' => $quote->id,
-        'quote' => $quote->quote,
-        'author_id' => $quote->author_id,
-        'category_id' => $quote->category_id,
-    );
-
-    // Make JSON
-
-    print_r(json_encode($quote_arr));
-
+  // Create array
+ $quote_arr = array(
+    'id' => $quote->id,
+    'quote' => $quote->quote,
+    'author' => $quote->author,
+    'category' => $quote->category
+  );
+  // Make JSON
+  print_r(json_encode($category_arr));
+  ?>

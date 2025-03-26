@@ -8,25 +8,27 @@
 
   include_once '../../config/Database.php';
   include_once '../../models/Category.php';
+
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate category object
+  // Instantiate cat obj
   $category = new Category($db);
 
   // Get raw data
-  $data = json_decode(file_get_contents("php://input"));
+  $inputdata = json_decode(file_get_contents("php://input"), true);
 
-  $category->category = $data->category;
-
-  // Create Category
-  if($category->create()) {
+ 
+    // Delete author if...
+  if($category->delete()) {
     echo json_encode(
-      array('message' => 'Category Created')
+      array('id' => $data['id'])
     );
+/else...
   } else {
     echo json_encode(
-      array('message' => 'Category Not Created')
+      array('message' => 'Category not deleted')
     );
   }
+?>

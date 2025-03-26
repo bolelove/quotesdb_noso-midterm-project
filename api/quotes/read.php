@@ -1,63 +1,49 @@
+<?php 
 
-<?php   
-    //Headers
+  include_once '../../config/Database.php';
+  include_once '../../models/Quote.php';
 
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
+  // Instantiate DB & connect
+  $database = new Database();
+  $db = $database->connect();
 
-    
-    include_once '../../config/Database.php';
-    include_once '../../models/Quote.php';
+  // Instantiate quote   pbject
+  $quote  = new Quote($db);
 
+  // Quote read query
+  $result = $quote ->read();  
 
-    // Instantiate DB & connect
+  // Get row count
+  $num = $result->rowCount();
 
-    $database = new Database();
-    $db = $database->connect();
+  // check quote if....
+  if($num > 0) {
+        // quote  array
+        $  = array();
+        $quote_arr['data'] = array();
 
-    
-    // Instantiate quote object
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+          extract($row);
 
-    $quote = new Quote($db);
+          $quote_item = array(
+            'id' => $id,
+            'quote ' => $quote, 
+            'author' => $author,
+            'category' => $category
+          );
 
-    // Blog quote query
-
-    $result = $quote -> read();
-    //Get row count
-    $num = $result->rowCount();
-
-    //Check if any quotes
-
-    if($num>0){
-        // quote Array
-        $quote_arr = array();
-        $quotes_arr['data'] = array();
-
-        while($row = $result->fetch(PDO::FETCH_ASSOC)){
-            extract($row);
-
-            $quote_item = array(
-                'id' => $id,
-                'quote' => $quote,
-                'author_id' => $author_id,
-                'category_id' => $category_id,
-                
-            );
-
-            // Push to "data
-
-            array_push($quotes_arr['data'], $quote_item);
+          // Push to "data"
+          array_push($quote_arr['data'], $quote_item);
         }
 
-        // Trun to JSON & output
-
-        echo json_encode($quotes_arr);
-
-    } else{
-
-        // No quotes
+        // Turn to JSON & output
+        echo json_encode($quote_arr);
+        //else...
+  } else {
+        // No categories
         echo json_encode(
-            array('message' => 'No quotes Found')
+          array('message' => 'No categories Found')
         );
-
     }
+  ?>
+

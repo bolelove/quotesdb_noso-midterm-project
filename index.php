@@ -1,12 +1,17 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-declare(strict_types = 1);
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>MidTerm Project INF 653title>
+  </head>
 
-echo '<pre>';
-print_r(getenv('SITE_URL'));
-echo '<br>';
-print_r($_SERVER);
-echo '</pre>';
+<body>
+    <h1>MidTerm Project INF 653</h1>
+    <h2>PHP OOP REST API</h2>
+    <h3>Noah Solomon</h3>
 
-phpinfo();
+</body>
 
+</html>
