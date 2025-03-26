@@ -23,7 +23,7 @@
             FROM
                 '  . $this->table;
 
-            $stmt = $this->conn->prepare($query);
+            //$stmt = $this->conn->prepare($query);
 
             // Execute query
             $stmt->execute();
