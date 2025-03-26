@@ -11,7 +11,7 @@
   $category  = new Category($db);
 
   // Category read query
-  //$result = $category->read();  
+  $result = $category->read();  
   // Get row count
   $num = $result->rowCount();
 
