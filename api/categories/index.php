@@ -1,7 +1,8 @@
 <?php
-    // Header
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
+      include_once '../../config/headers.php';
+      include_once '../../config/Database.php';
+      include_once '../../models/Author.php';
+      
     $method = $_SERVER['REQUEST_METHOD'];
 
     if ($method === 'OPTIONS') {
