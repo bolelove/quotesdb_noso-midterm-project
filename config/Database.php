@@ -31,7 +31,6 @@ class Database {
     
 }
 
-}
 // $this->port = getenv('PORT');
 //  private $port;
 ?>
