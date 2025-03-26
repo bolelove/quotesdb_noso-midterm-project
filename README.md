@@ -1,9 +1,9 @@
-# Noah Solomon
+# Author: Noah Solomon
 # Mid-Term Project INF 653
-# Project Name: https://quotesdb-noso-midterm-project.onrender.com/
-# Dave Gray 
+# Project: https://quotesdb-noso-midterm-project.onrender.com/
+# Instructor: Dave Gray 
 
- > Build a PHP OOP REST API for quotations- both famous quotes and user submissions
+ > This project is to build a PHP OOP REST API and uses php to implement 'CRUD' commands to interact with a PostgreSQL database containing quotations- both famous quotes and user submissions
  > ALL quotes have ALL 3 of the following:
    > Quote (the quotation itself)
    > Author

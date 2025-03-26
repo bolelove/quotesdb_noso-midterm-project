@@ -10,7 +10,7 @@
 <body>
     <h1>MidTerm Project INF 653</h1>
     <h2>PHP OOP REST API</h2>
-    <h3>Noah Solomon</h3>
+    <h3>Author: Noah Solomon</h3>
 
 </body>
 
