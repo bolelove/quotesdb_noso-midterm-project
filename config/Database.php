@@ -5,12 +5,15 @@
     private $db_name;
     private $username;
     private $password;
+    private $port;
 
     public function __construct() {
       $this->username = getenv('USERNAME');
       $this->password = getenv('PASSWORD');
       $this->db_name = getenv('DBNAME');
       $this->host = getenv('HOST');
+			$this->port = 5432;
+      
       
     }
     
