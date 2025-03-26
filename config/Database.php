@@ -2,17 +2,17 @@
   class Database {
     private $conn;
     private $host;
-    private $db_name;
+    private $dbname;
     private $username;
     private $password;
-    private $port;
+   
 
     public function __construct() {
       $this->username = getenv('USERNAME');
       $this->password = getenv('PASSWORD');
-      $this->db_name = getenv('DBNAME');
+      $this->dbname = getenv('DBNAME');
       $this->host = getenv('HOST');
-			$this->port = 5432;
+			
       
       
     }
@@ -22,8 +22,8 @@
       if ($this->conn) {
         return $this->conn;
       } else {
-        // $dsn = "pgsql:host={$this->host};port={$this->port};db_name={$this->db_name}";
-        $dsn = "pgsql:host={$this->host};db_name={$this->db_name}";
+        // $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname}";
+        $dsn = "pgsql:host={$this->host};dbname={$this->dbFname}";
 
         try {
           $this->conn = new PDO($dsn, $this->username, $this->password);
