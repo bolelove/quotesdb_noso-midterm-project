@@ -8,7 +8,7 @@
   $db = $database->connect();
 
   // Instantiate quote   pbject
-  $quote  = new Quote($db);
+  //$quote  = new Quote($db);
 
   // Quote read query
   $result = $quote ->read();  

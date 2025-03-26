@@ -14,7 +14,7 @@
         if (isset($_GET["id"])) {
             require_once 'read_single.php';
         } else {
-            require_once 'read.php';
+           // require_once 'read.php';
         }
     }
 
