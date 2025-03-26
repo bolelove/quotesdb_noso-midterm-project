@@ -19,7 +19,7 @@
   // check quote if....
   if($num > 0) {
         // quote  array
-        $  = array();
+        $quotes_arr = array();
         $quote_arr['data'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -27,7 +27,7 @@
 
           $quote_item = array(
             'id' => $id,
-            'quote ' => $quote, 
+            'quote' => $quote, 
             'author' => $author,
             'category' => $category
           );
