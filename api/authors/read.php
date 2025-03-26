@@ -11,7 +11,7 @@
   $author = new Author($db);
 
   // Author read query
-  $result = $author->read();
+  $result = $author->read(); 
   
   // Get row count
   $num = $result->rowCount();
