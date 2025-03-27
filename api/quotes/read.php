@@ -24,7 +24,7 @@
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
           extract($row);
 
-          $quote_item = array(
+          $post_item = array(
             'id' => $id,
             'quote' => $quote, 
             'author' => $author,
