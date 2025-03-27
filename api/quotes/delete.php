@@ -18,7 +18,7 @@
 
   
   // Set ID to update
-  $quote->id = $data->id;
+  //$quote->id = $data->id;
 
   $data = json_decode(file_get_contents("php://input"), true);
 
