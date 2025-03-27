@@ -14,20 +14,20 @@
         if (isset($_GET["id"])) {
             require_once 'read_single.php';
         } else {
-            require_once 'read.php';
+            include_once 'read.php';
         }
         
     }
 
     if ($method === 'PUT') {
-        require_once 'update.php';
+        include_once 'update.php';
     }
 
     if ($method === 'POST') {
-        require_once 'create.php';
+        include_once 'create.php';
     }
 
     if ($method === 'DELETE') {
-        require_once 'delete.php';
+        include_once 'delete.php';
     }
 ?>
