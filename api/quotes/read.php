@@ -32,7 +32,7 @@
           );
 
           // Push to "data"
-          array_push($posts_arr, $post_item); 
+          array_push($quote_arr['data'], $quote_item);
         }
 
         // Turn to JSON & output
