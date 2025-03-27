@@ -84,13 +84,7 @@
           $stmt->execute();
     
           return $stmt;
-        }
-    
-    
-    
-    
-    
-    
+        }   
     
         public function read_single() {
           // Check if given quote exists
@@ -201,13 +195,7 @@
           printf("Error: %s.\n", $stmt->error);
     
           return false;
-        }
-    
-    
-    
-    
-    
-    
+        } 
     
         public function update() {
     
@@ -298,14 +286,8 @@
     
           return false;
         }
-    
-    
-    
-    
-    
-    
-    
-        public function delete() {
+        
+            public function delete() {
     
           // Get raw DELETE request data
           $data = json_decode(file_get_contents("php://input"), true);

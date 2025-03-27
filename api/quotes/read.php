@@ -1,5 +1,4 @@
 <?php 
-
   include_once '../../config/Database.php';
   include_once '../../models/Quote.php';
 
@@ -20,7 +19,7 @@
   if($num > 0) {
         // quote  array
         $quotes_arr = array();
-        $quote_arr['data'] = array();
+        
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
           extract($row);

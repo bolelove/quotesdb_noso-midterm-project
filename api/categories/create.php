@@ -11,18 +11,24 @@
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate cat obj
-  $category = new Category($db);
+    // Instantiate cat obj
+    $category = new Category($db);
+      
+   $inputdata = json_decode(file_get_contents("php://input"), true);
+
+    // If parameters are missing...
+    if (!isset($inputdata['category'])) {
+      echo json_encode(['message' => 'Missing Required Parameters']);
+      exit;
+    }
 
   // Get raw data
-  $inputdata = json_decode(file_get_contents("php://input"), true);
+  $data = json_decode(file_get_contents("php://input"));
 
- 
+  $category->category = $data->category;
+
     // Delete author if...
-  if($category->delete()) {
-    echo json_encode(
-      array('id' => $data['id'])
-    );
+  if($category->create()) {
 /else...
   } else {
     echo json_encode(

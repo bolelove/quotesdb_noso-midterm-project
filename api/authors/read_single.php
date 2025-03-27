@@ -1,11 +1,12 @@
 
 <?php
-
   include_once '../../config/Database.php';
   include_once '../../models/author.php';
   // Instantiate DB & connect
+
   $database = new Database();
   $db = $database->connect();
+  
   // Instantiate Author object
   $author = new Author($db); 
 
