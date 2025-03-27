@@ -1,5 +1,5 @@
 <?php
-    class Category{
+    class Quote{
         //DB Stuff
         private $conn;
         private $table = 'quotes';
