@@ -29,7 +29,7 @@
 
     // Delete author if...
   if($category->create()) {
-/else...
+//else..
   } else {
     echo json_encode(
       array('message' => 'Category not deleted')
