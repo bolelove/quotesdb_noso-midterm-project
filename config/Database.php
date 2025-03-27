@@ -5,6 +5,7 @@
     private $dbname;
     private $username;
     private $password;
+    private $port;
    
 
     public function __construct() {
@@ -12,7 +13,7 @@
       $this->password = getenv('PASSWORD');
       $this->dbname = getenv('DBNAME');
       $this->host = getenv('HOST');  
-      
+      $this->port = getenv('PORT');  
     }
     
     // DB Connect
