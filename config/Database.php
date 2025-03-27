@@ -1,5 +1,6 @@
 <?php 
   class Database {
+    private $conn;
     private $host;
     private $dbname;
     private $username;
@@ -28,10 +29,11 @@
         } catch(PDOException $e) {
           echo 'Connection Error: ' . $e->getMessage();
         }
+      
         return $this->conn;
       }
     }
-  }
+  } 
 
 // $this->port = getenv('PORT');
 //  private $port;
