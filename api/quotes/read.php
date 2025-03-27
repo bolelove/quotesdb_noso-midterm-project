@@ -26,13 +26,13 @@
 
           $quote_item = array(
             'id' => $id,
-            //'quote' => $quote, 
+            'quote' => $quote, 
             'author' => $author,
-            //'category' => $category
+            'category' => $category
           );
 
           // Push to "data"
-          array_push($quote_arr['data'], $quote_item); 
+          array_push($posts_arr, $post_item); 
         }
 
         // Turn to JSON & output
