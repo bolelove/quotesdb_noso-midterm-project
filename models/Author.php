@@ -21,9 +21,9 @@
                 id,
                 author
             FROM
-                '  . $this->table  . ' 
-            //ORDER BY
-                //id DESC';
+                '  . $this->table;
+            
+                
             // Prepare statement
             $stmt = $this->conn->prepare($query);
 
