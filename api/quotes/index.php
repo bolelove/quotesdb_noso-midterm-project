@@ -16,6 +16,7 @@
         } else {
             require_once 'read.php';
         }
+        
     }
 
     if ($method === 'PUT') {
